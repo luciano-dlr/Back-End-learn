@@ -2,8 +2,8 @@ class persona {
     constructor(nombre, apellido, libro, mascota) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.libro = [libro]
-        this.mascota = [mascota]
+        this.libro = [libro];
+        this.mascota = [mascota];
     }
 
     getFullname() {
@@ -33,25 +33,26 @@ class persona {
 
 }
 
-const usuario = new persona('joaquin', ' gual', { nombre: 'harry potter' }, 'boxer');
+const usuario = new persona('joaquin', 'gual', 'harry potter', 'boxer',);
 
 // Usuario
 console.log(usuario)
 
-// Nombre completo
-console.log('el nombre del usuario es ' + usuario.getFullname());
+// // Nombre completo
+// console.log('el nombre del usuario es ' + usuario.getFullname());
 
-// Agregar Mascota
-console.log(usuario.addMascota('chiguagua'));
+// // Agregar Mascota
+// console.log(usuario.addMascota('chiguagua'));
 
-// Cantidad de Mascotas
-console.log(usuario.countMascotas())
+// // Cantidad de Mascotas
+// console.log(usuario.countMascotas())
 
-// Agregar un libro con nombre y autor
-console.log(usuario.addBook('Juego De Tronos', 'George R. R. Martin'))
-console.log(usuario.addBook('star wars', 'George Lucas'))
+// // Agregar un libro con nombre y autor
+// console.log(usuario.addBook('Juego De Tronos', 'George R. R. Martin'))
+// console.log(usuario.addBook('star wars', 'George Lucas'))
 
-// Consultar solo el nombre de cada libro del usuario
-console.log(usuario.getBookNames());
+// // Consultar solo el nombre de cada libro del usuario
+// console.log(usuario.getBookNames());
+
 
 

@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "titulo": "cocacola",
+        "precio": 150,
+        "url": "#"
+    },
+    {
+        "id": 1,
+        "titulo": "fanta",
+        "precio": 150,
+        "url": "#"
+    }
+]
