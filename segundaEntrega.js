@@ -48,9 +48,7 @@ class Productos {
 
     async getById() {
         try {
-            const productoId = await Productos.length(this.id);
-            // console.log(productoId.id)
-            return JSON.parse(productoId);
+
 
         } catch (error) {
             return ['error senior']
