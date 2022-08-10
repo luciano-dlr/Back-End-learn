@@ -1,15 +1,10 @@
 const fs = require('fs/promises');
 
 class Productos {
-    constructor(ruta, id, titulo, precio, url) {
+    constructor(ruta) {
         this.ruta = ruta
-        // this.id = id
-        // this.titulo = titulo
-        // this.precio = precio
-        // this.url = url
-    }
 
-    // save()
+    }
 
     async getAll() {
         try {
@@ -45,21 +40,42 @@ class Productos {
         }
     }
 
-
-    async getById() {
+    async getById(id) {
         try {
+            const producto = await this.getAll();
+            const listaProductos = producto.findIndex((o) => o.id == id)
 
+            if (listaProductos == -1) {
+                return `No existe el producto con id : ${id}`;
+            } else {
+                producto[listaProductos] = { id };
+                await fs.readFile(this.ruta);
 
+            }
+            return `Si existe el producto con el id: ${id}`;
         } catch (error) {
-            return ['error senior']
+            console.log('error en buscar producto por id')
         }
     }
 
+    async deleteById(id) {
+        try {
+            const producto = await this.getAll();
+            const listaProductos = producto.findIndex((o) => o.id == id);
 
-    // deleteById()
+            if (listaProductos == -1) {
+                return 'Elemento no encontrado'
+            } else {
+                producto.splice(listaProductos, 1);
+                await fs.writeFile(this.ruta, JSON.stringify(producto, null, 2));
+                return `producto ${id} eliminado`
+            }
 
-    // deleteAll()
 
+        } catch (error) {
+            return 'No se pudo eliminar'
+        }
+    }
 
 }
 
@@ -67,15 +83,11 @@ async function master() {
 
     const pedido = new Productos('./data/data.json')
     console.log(await pedido.getAll())
-    console.log(await pedido.save({ id: 3, titulo: 'fanta', precio: 150, url: '#' }))
+    console.log(await pedido.save({ id: 1, titulo: 'fanta', precio: 150, url: '#' }))
+    console.log(await pedido.getById(4))
 }
 
 master()
-
-
-
-
-
 
 
 

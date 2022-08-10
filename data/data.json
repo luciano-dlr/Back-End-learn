@@ -1,24 +1,24 @@
 [
   {
-    "id": 0,
-    "titulo": "cocacola",
+    "id": 4,
+    "titulo": "fanta",
     "precio": 150,
     "url": "#"
   },
   {
-    "id": 1,
-    "titulo": "pepsi",
+    "id": 5,
+    "titulo": "fanta",
     "precio": 150,
     "url": "#"
   },
   {
-    "id": 2,
-    "titulo": "doble-cola",
+    "id": 6,
+    "titulo": "fanta",
     "precio": 150,
     "url": "#"
   },
   {
-    "id": 3,
+    "id": 7,
     "titulo": "fanta",
     "precio": 150,
     "url": "#"
