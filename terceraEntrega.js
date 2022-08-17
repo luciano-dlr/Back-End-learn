@@ -1,39 +1,22 @@
-const http = require('express');
-const Mensaje = require('./src/Mensajes.js')
-
+const express = require('express')
+const Productos = require('./data/data')
 
 const app = express();
-const msg = new Mensaje();
+const product = new Productos();
+
 
 app.get('/', (req, res) => {
-    res.send(msg.generarPlantillaMsg(2, 'cyan', 'alberto'))
-});
-
-
-
-let vistas = 0;
-app.get('/', (req, res) => {
-    res.send(`cantidad de vistas es ${vistas++}`)
-});
-
-
-let fecha = new Date().toDateString();
-app.get('/fyh', (req, res) => {
-    res.send(`fecha:${fecha}`)
+    res.send(product.array())
 })
 
+app.get('/randomproduct', (req, res) => {
+    const object = product.array();
+    const randomId = Math.floor(Math.random() * object.length);
+    res.send(object[randomId]);
+})
 
-const port = 4242;
-const server = app.listen(port, () => {
-    console.log(`Server http://localhost:${port}`)
+const PORT = 8080;
 
-});
-
-
-    // const server = http.createServer((request, response) => {
-    //     response.end('server', request.url);
-    // })
-    
-    // const connectedServer = server.listen(8080, () => {
-    //     console.log(`servidor en http:localhost8080/`)
-    // })
+const server = app.listen(PORT, () => {
+    console.log(`Server on http://localhost:${PORT}/`)
+})
